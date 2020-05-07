@@ -1,0 +1,10 @@
+<?php
+
+namespace App\DBContext;
+
+use \Ilma\Ecosystem\Services\UserService\DBContext\DBContextUser as Model;
+
+class DBContextUser extends Model
+{
+
+}
