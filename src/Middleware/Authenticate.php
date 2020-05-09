@@ -19,7 +19,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return config('ecosystem.url.auth').'/auth/sms?'.http_build_query([
+            return config('ecosystem.url.public.auth').'/auth/sms?'.http_build_query([
                     'ref'=>URL::current()
                 ]);
         }

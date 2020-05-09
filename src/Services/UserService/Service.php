@@ -32,7 +32,7 @@ class Service implements ServiceInterface
         $response = $this->getHttpService()
             ->setApiToken(config('ecosystem.service_token'))
             ->post(
-                config('ecosystem.url.auth').'/api/users',
+                config('ecosystem.url.internal.auth').'/api/users',
                 array_merge([
                     'mobile_phone'=>$mobilePhone,
                     'role'=>$role
@@ -55,7 +55,7 @@ class Service implements ServiceInterface
         $response = $this->getHttpService()
             ->setApiToken(config('ecosystem.service_token'))
             ->post(
-                config('ecosystem.url.auth').'/api/users/'.$user->uid,
+                config('ecosystem.url.internal.auth').'/api/users/'.$user->uid,
                 array_merge([
                     '_method'=>'PUT'
                 ],$fillable)
@@ -94,7 +94,7 @@ class Service implements ServiceInterface
         $response = $this->getHttpService()
             ->setApiToken(config('ecosystem.service_token'))
             ->multipartPost(
-                config('ecosystem.url.auth').'/api/users/upload-image',
+                config('ecosystem.url.internal.auth').'/api/users/upload-image',
                 [
                     [
                         'name'     => 'image',
@@ -120,13 +120,16 @@ class Service implements ServiceInterface
             'patronymic',
             'date_of_birth',
             'email',
-            'avatar',
             'test_scenario',
             'public_key_x509',
             'public_key_valid_from',
             'public_key_valid_to',
             'created_at',
-            'updated_at'
+            'updated_at',
+            'avatar_x1',
+            'avatar_x2',
+            // synthetic
+            'avatar'
         ];
     }
 

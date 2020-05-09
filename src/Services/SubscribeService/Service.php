@@ -20,7 +20,7 @@ class Service implements ServiceInterface
         $this->getHttpService()
             ->setApiToken(config('ecosystem.service_token'))
             ->post(
-            config('ecosystem.url.auth').'/api/subscribers',
+            config('ecosystem.url.internal.auth').'/api/subscribers',
             $data
         );
     }
